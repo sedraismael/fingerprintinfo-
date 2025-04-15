@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fingerprint Explorer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background-color: #343a40;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .intro, .scanner-link {
+      margin: 0.5rem 0;
+    }
+    .fingerprint-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .fingerprint {
+      width: 120px;
+      height: 120px;
+      background-image: url('https://i.imgur.com/f8n9FhP.png'); /* Placeholder fingerprint image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .fingerprint:hover {
+      transform: scale(1.1);
+    }
+    .info-box {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255,255,255,0.95);
+      padding: 2rem;
+      overflow-y: auto;
+      animation: fadeIn 0.5s ease-in;
+      z-index: 1000;
+    }
+    .info-box h2 {
+      margin-top: 0;
+    }
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .references {
+      padding: 2rem;
+      background-color: #e9ecef;
+    }
+    .references ul {
+      list-style: none;
+      padding: 0;
+    }
+    .references li {
+      margin: 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔍 Fingerprint Explorer | مستكشف البصمات</h1>
+    <p class="intro">
+      Welcome to the interactive fingerprint explorer. Click any fingerprint below to learn more about its unique patterns and meanings.<br>
+      مرحبًا بكم في مستكشف البصمات التفاعلي. انقر على أي بصمة أدناه للتعرف على نمطها الفريد ومعناها.
+    </p>
+    <div class="scanner-link">
+      🔗 Try our fingerprint scanner here: <a href="https://sedraismael.github.io/Divine-Prints1/" target="_blank">Divine Prints Scanner</a>
+    </div>
+  </header>
+
+  <div class="fingerprint-container">
+    <div class="fingerprint" data-type="whorl"></div>
+    <div class="fingerprint" data-type="loop"></div>
+    <div class="fingerprint" data-type="arch"></div>
+    <div class="fingerprint" data-type="double-loop"></div>
+    <div class="fingerprint" data-type="central-pocket"></div>
+    <div class="fingerprint" data-type="tented-arch"></div>
+  </div>
+
+  <div class="info-box" id="whorl-info">
+    <button class="close-btn">X</button>
+    <h2>Whorl Pattern | نمط الدوامة</h2>
+    <p>The whorl pattern is characterized by circular or spiral ridges that form a bullseye-like design. According to the FBI and NIST, whorls appear in approximately 30-35% of the population globally and are more common in people of Asian descent. Subtypes include plain whorl, central pocket loop, double loop, and accidental whorl.<br>
+    نمط الدوامة يتميز بتكوين دوائر أو لوالب على شكل عين الثور. يظهر هذا النمط في حوالي ٣٠-٣٥٪ من سكان العالم، وهو أكثر شيوعًا لدى الأشخاص من أصول آسيوية.</p>
+  </div>
+
+  <div class="info-box" id="loop-info">
+    <button class="close-btn">X</button>
+    <h2>Loop Pattern | نمط الحلقة</h2>
+    <p>Found in around 60-65% of people globally. Ulnar loops slope toward the little finger (more common), while radial loops slope toward the thumb (rarer). Especially frequent in individuals of European and African descent.<br>
+    تُعد أنماط الحلقة الأكثر شيوعًا، وتوجد في حوالي ٦٠-٦٥٪ من سكان العالم. هناك نوعان: الحلقة الزندية (نحو الإصبع الصغير) والحلقة الكعبرية (نحو الإبهام).</p>
+  </div>
+
+  <div class="info-box" id="arch-info">
+    <button class="close-btn">X</button>
+    <h2>Arch Pattern | نمط القوس</h2>
+    <p>Arches rise in the center and exit on opposite sides. They are found in about 5% of the population, and are considered the simplest fingerprint type.<br>الأقواس ترتفع في المنتصف وتخرج من الجانبين.</p>
+  </div>
+
+  <div class="info-box" id="double-loop-info">
+    <button class="close-btn">X</button>
+    <h2>Double Loop | حلقة مزدوجة</h2>
+    <p>This pattern has two loops swirling around each other and is a subtype of the whorl. It occurs in around 4-6% of fingerprints.<br>يحتوي هذا النمط على حلقتين تدوران حول بعضهما البعض.</p>
+  </div>
+
+  <div class="info-box" id="central-pocket-info">
+    <button class="close-btn">X</button>
+    <h2>Central Pocket Loop | حلقة الجيب المركزي</h2>
+    <p>Similar to a plain whorl but with a tighter center. Important for forensic analysis due to ridge detail.<br>يشبه الدوامة ولكنه يحتوي على مركز أكثر ضيقًا.</p>
+  </div>
+
+  <div class="info-box" id="tented-arch-info">
+    <button class="close-btn">X</button>
+    <h2>Tented Arch | القوس الخيمائي</h2>
+    <p>This arch rises sharply like a tent. Found in about 1% of the population.<br>يرتفع هذا القوس بشكل حاد مثل عمود خيمة.</p>
+  </div>
+
+  <section class="references">
+    <h2>References | المراجع</h2>
+    <ul>
+      <li><a href="https://www.nist.gov/programs-projects/fingerprints" target="_blank">NIST Fingerprint Research</a></li>
+      <li><a href="https://www.fbi.gov/services/cjis/fingerprints-and-other-biometrics" target="_blank">FBI: Fingerprints & Biometrics</a></li>
+      <li><a href="https://www.sciencedirect.com/science/article/pii/S0379073817300766" target="_blank">ScienceDirect: Classification Accuracy</a></li>
+      <li><a href="https://pubmed.ncbi.nlm.nih.gov/24495402/" target="_blank">PubMed: Population Distribution</a></li>
+      <li><a href="https://www.britannica.com/science/fingerprint" target="_blank">Encyclopedia Britannica: Fingerprints</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    Credits: Sedra, Mona, Yara, Taleen | التصميم بواسطة: سدرة، منى، يارا، تالين
+  </footer>
+
+  <script>
+    const fingerprints = document.querySelectorAll(".fingerprint");
+    const infoBoxes = document.querySelectorAll(".info-box");
+    const closeButtons = document.querySelectorAll(".close-btn");
+
+    fingerprints.forEach((fp) => {
+      fp.addEventListener("click", () => {
+        const type = fp.getAttribute("data-type");
+        infoBoxes.forEach(box => box.style.display = "none");
+        const target = document.getElementById(`${type}-info`);
+        if (target) {
+          target.style.display = "block";
+        }
+      });
+    });
+
+    closeButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        btn.parentElement.style.display = "none";
+      });
+    });
+  </script>
+</body>
+</html>
